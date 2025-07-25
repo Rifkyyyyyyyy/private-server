@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+}
+
+enum ExperienceType {
+  MONTH
+  YEAR
+}
+
+enum EduType {
+  FORMAL
+  NON_DEGREE
+  TRAINING
+}
+
+enum ProjectStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum LanguageLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  FLUENT
+  NATIVE
+}
+
+enum CVCategory {
+  MOBILE_DEVELOPER
+  FULLSTACK_DEVELOPER
+  BACKEND_DEVELOPER
+  WEB_DEVELOPER
+  AI_ENGINEER
+  VIDEO_EDITOR
+  UI_UX_DESIGNER
+  DATA_ANALYST
+  OTHER
+}
+
+// ===================== MODELS =====================
+
+model User {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String   @unique
+  password     String
+  role         Role     @default(ADMIN)
+  about        String?
+  profilePhoto Json?
+  apiKey       String   @unique // unik tapi bukan primary key
+  createdAt    DateTime @default(now())
+
+  // Relations
+  certificates     Certificate[]
+  spokenLangs      SpokenLanguage[]
+  programmingLangs ProgrammingLanguage[]
+  techStacks       TechStack[]
+  blogs            Blog[]
+  projects         Project[]
+  detailProjects   DetailProject[]
+  educations       Education[]
+  cvs              CV[]
+  softSkills       SoftSkill[]
+  hardSkills       HardSkill[]
+}
+
+model Blog {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  authorId       String    @db.ObjectId
+  title          String
+  slug           String    @unique
+  summary        String?
+  cover          Json?
+  publishedAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  author User        @relation(fields: [authorId], references: [id])
+  detail BlogDetail?
+}
+
+model BlogDetail {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  blogId      String   @unique @db.ObjectId
+  title       String
+  thumbail    Json?
+  contentHtml String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  blog Blog @relation(fields: [blogId], references: [id])
+}
+
+model Project {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String         @db.ObjectId
+  title       String
+  slug        String         @unique
+  description String
+  tags        String[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  user        User           @relation(fields: [userId], references: [id])
+  detail      DetailProject? @relation("ProjectDetail")
+}
+
+model DetailProject {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  projectId   String        @unique @db.ObjectId
+  userId      String        @db.ObjectId
+  title       String
+  contentHtml String
+  status      ProjectStatus @default(PUBLISHED)
+  repository  String?
+  banners     Json
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  project     Project       @relation("ProjectDetail", fields: [projectId], references: [id])
+  user        User          @relation(fields: [userId], references: [id])
+}
+
+model Education {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String    @db.ObjectId
+  institution   String
+  program       String?
+  degree        String?
+  educationType EduType
+  location      String?
+  startDate     DateTime
+  endDate       DateTime?
+  description   String?
+  createdAt     DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model SpokenLanguage {
+  id        String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String        @db.ObjectId
+  name      String
+  level     LanguageLevel
+  createdAt DateTime      @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model ProgrammingLanguage {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String         @db.ObjectId
+  name           String
+  experience     Int // WAJIB: jumlah pengalaman (angka)
+  experienceType ExperienceType // WAJIB: tipe pengalaman (MONTH atau YEAR)
+  createdAt      DateTime       @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model TechStack {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  name      String
+  category  String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Certificate {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  title       String
+  fileJson    Json
+  description String?
+  details     String?
+  viewJson    Json
+  uploadedAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model CV {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String     @db.ObjectId
+  title       String
+  fileJson    Json?
+  description String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  category    CVCategory
+  user        User       @relation(fields: [userId], references: [id])
+}
+
+model SoftSkill {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model HardSkill {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

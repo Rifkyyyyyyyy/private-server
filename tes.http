@@ -1,0 +1,227 @@
+
+
+# GET  http://localhost:3000/api/me
+# Content-Type: application/json
+
+
+
+
+
+
+# ### GET All Tech Stacks (Public)
+GET http://localhost:3000/api/tech-stacks
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMTg5NzE4LCJleHAiOjE3NTMxOTMzMTgsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.KPRyj0fIF0JE784SKcEF9ub0gxErjwy03vLb1lO00iM; Max-Age=3600; Path=/; Expires=Tue, 22 Jul 2025 14:08:38 GMT; HttpOnly
+
+
+### CREATE Tech Stack (Private)
+# POST http://localhost:3000/api/tech-stacks
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ0NDYxLCJleHAiOjE3NTI3NDgwNjEsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.VXT_Qt7pgUKG-AJxVTh5bzIsyTnG7rCIL9kGYvujZCM
+
+# {
+#   "name": "Node.js",
+#   "category": "Backend"
+# }
+
+
+# ### UPDATE Tech Stack (Private)
+PUT http://localhost:3000/api/tech-stacks/6878c29c4b5ebc77202218f1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ0NDYxLCJleHAiOjE3NTI3NDgwNjEsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.VXT_Qt7pgUKG-AJxVTh5bzIsyTnG7rCIL9kGYvujZCM
+
+
+{
+  "name": "Express.js",
+  "category": "Backend Framework"
+}
+
+### DELETE Tech Stack (Private)
+DELETE http://localhost:3000/api/tech-stacks/687c5bdfa242f186d80e853d
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyOTgyODg1LCJleHAiOjE3NTI5ODY0ODUsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.Mkm9EKQfU9cNegdn6kBUPHdRdZ-JtVrh-CxQ2eKf720
+
+
+# ---
+
+# ### GET All Educations (Public)
+GET http://localhost:3000/api/educations
+
+# ### CREATE Education (Private)
+POST http://localhost:3000/api/educations
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ0NDYxLCJleHAiOjE3NTI3NDgwNjEsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.VXT_Qt7pgUKG-AJxVTh5bzIsyTnG7rCIL9kGYvujZCM
+
+{
+  "institution": "Universitas Pamulang",
+  "program": "Teknik Informatika",
+  "degree": "S.Kom",
+  "educationType": "FORMAL",
+  "location": "Tangerang Selatan",
+  "startDate": "2020-08-01",
+  "endDate": "2024-07-01",
+  "description": "Konsentrasi Software Engineering"
+}
+
+### UPDATE Education
+# PUT http://localhost:3000/api/educations/6878ce424b5ebc77202218f3
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ0NDYxLCJleHAiOjE3NTI3NDgwNjEsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.VXT_Qt7pgUKG-AJxVTh5bzIsyTnG7rCIL9kGYvujZCM
+
+# {
+#   "institution": "UP",
+#   "program": "TI",
+#   "degree": "S.Kom",
+#   "educationType": "FORMAL",
+#   "location": "Tangsel",
+#   "startDate": "2020-08-01",
+#   "endDate": "2024-07-01",
+#   "description": "Updated"
+# }
+
+# ### DELETE Education
+# DELETE http://localhost:3000/api/educations/6878ce294b5ebc77202218f2
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ0NDYxLCJleHAiOjE3NTI3NDgwNjEsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.VXT_Qt7pgUKG-AJxVTh5bzIsyTnG7rCIL9kGYvujZCM
+
+
+# ---
+
+# ### GET All Projects
+# GET http://localhost:3000/api/projects
+
+# ### GET Project by Slug
+# GET http://localhost:3000/api/projects/apa-aja
+
+# ### CREATE Project
+# POST http://localhost:3000/api/projects
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "title": "My Project",
+#   "slug": "my-project",
+#   "description": "Project Description",
+#   "tags": ["tech", "js"]
+# }
+
+# ### UPDATE Project
+# PUT http://localhost:3000/api/projects/my-project
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "title": "My Updated Project",
+#   "description": "Updated desc",
+#   "tags": ["update"]
+# }
+
+# ### DELETE Project
+# DELETE http://localhost:3000/api/projects/my-project
+# Cookie: token=YOUR_TOKEN_HERE
+
+# ---
+
+# ### GET All Certificates
+# GET http://localhost:3000/api/certificates
+
+# ### CREATE Certificate
+# POST http://localhost:3000/api/certificates
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "title": "Javascript Mastery",
+#   "description": "Advanced JS",
+#   "viewUrl": "https://certif.com/js"
+# }
+
+# ### UPDATE Certificate
+# PUT http://localhost:3000/api/certificates/REPLACE_ID
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "title": "JS Mastery Updated",
+#   "description": "Updated"
+# }
+
+# ### DELETE Certificate
+# DELETE http://localhost:3000/api/certificates/REPLACE_ID
+# Cookie: token=YOUR_TOKEN_HERE
+
+# ---
+
+# ### GET All CVs
+# GET http://localhost:3000/api/cv
+
+# ### CREATE CV
+# POST http://localhost:3000/api/cv
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "fileId": "REPLACE_FILE_ID",
+#   "title": "My CV",
+#   "description": "Latest Resume"
+# }
+
+# ### DELETE CV
+# DELETE http://localhost:3000/api/cv/REPLACE_ID
+# Cookie: token=YOUR_TOKEN_HERE
+
+# ---
+
+### GET All Spoken Languages
+GET http://localhost:3000/api/spoken-languages
+
+# ### CREATE Spoken Language
+# POST http://localhost:3000/api/spoken-languages
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ4MjQyLCJleHAiOjE3NTI3NTE4NDIsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.BnYVzS1SvsNkKSZFUeV-GWo0iNpH4c7JyR98eEQCVdQ
+
+# {
+#   "name": "English",
+#   "level": "FLUENT"
+# }
+
+# ### UPDATE Spoken Language
+
+PUT http://localhost:3000/api/spoken-languages/6878d0e64b5ebc77202218f4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzg4ZDA1NDcxMDgxOGI5ZmNlNWU5NiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyNzQ4MjQyLCJleHAiOjE3NTI3NTE4NDIsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.BnYVzS1SvsNkKSZFUeV-GWo0iNpH4c7JyR98eEQCVdQ
+
+{
+  "name": "English",
+  "level": "NATIVE"
+}
+
+# ### DELETE Spoken Language
+# DELETE http://localhost:3000/api/spoken-languages/REPLACE_ID
+# Cookie: token=YOUR_TOKEN_HERE
+
+# ---
+
+### GET All Programming Languages
+GET http://localhost:3000/api/programming-languages?page=2&limit=5
+
+# ### CREATE Programming Language
+# POST http://localhost:3000/api/programming-languages
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "name": "Javascript",
+#   "experienceYears": 3
+# }
+
+# ### UPDATE Programming Language
+# PUT http://localhost:3000/api/programming-languages/REPLACE_ID
+# Content-Type: application/json
+# Cookie: token=YOUR_TOKEN_HERE
+
+# {
+#   "name": "JS",
+#   "experienceYears": 4
+# }
+
+# ### DELETE Programming Language
+# DELETE http://localhost:3000/api/programming-languages/REPLACE_ID
+# Cookie: token=YOUR_TOKEN_HERE

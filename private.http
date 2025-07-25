@@ -1,0 +1,5 @@
+
+
+GET  http://localhost:3000/api/projects
+Content-Type: application/json
+Cookie: oken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODA5ZjQxMTRmYzhjNjdmMjBiOTZiNiIsImVtYWlsIjoicmZreS5mcm1hbnN5YWhAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzNDU4MTIyLCJleHAiOjE3NTM0NjE3MjIsImlzcyI6InBlcnNvbmFsLXdlYi1hcHAifQ.YpeeQAfXQHfzyTPfE8f8HBzQcMfDQAwcoWo6Rn7uYSs

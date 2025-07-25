@@ -1,0 +1,28 @@
+# ## REGISTER
+# POST http://localhost:3000/api/users/register
+# Content-Type: application/json
+
+# {
+#   "name": "Rifky firmansyah",
+#   "email": "rfky.frmansyah@gmail.com",
+#   "password": "24072004July"
+# }
+
+
+
+
+# LOGIN
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "rfky.frmansyah@gmail.com",
+  "password": "24072004July"
+}
+
+
+# GET http://localhost:3000/api/ping
+
+# 68809f4114fc8c67f20b96b6
+
+Cookie_1=value; Path=/; Expires=Sat, 25 Jul 2026 14:53:10 GMT;

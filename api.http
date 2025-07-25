@@ -1,0 +1,39 @@
+### Get Tech Stack
+# GET http://localhost:3000/api/private/tech
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+
+###
+
+### Get Spoken Languages
+# GET http://localhost:3000/api/private/spoken
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+
+# ###
+
+# ### Get Programming Languages
+# GET http://localhost:3000/api/private/programming-languages
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+
+# ###
+
+# ### Get Educations
+# GET http://localhost:3000/api/private/educations
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+
+# ###
+
+# ### Get CV
+### Ambil CV berdasarkan category
+GET http://localhost:3000/api/private/cv?category=OTHER
+x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+# ###
+
+# ### Get Certificates
+# GET http://localhost:3000/api/private/certificates
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
+
+# ###
+
+# ### Get Projects
+# GET http://localhost:3000/api/private/projects
+# x-api-key: 1a77eb492367bcab605470a40357c332d08119df80cd400db28b948f839f3a97
