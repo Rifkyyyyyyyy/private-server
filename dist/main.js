@@ -1,8 +1,9 @@
 "use strict";
 
-var _web = require("./application/web.js");
-var _logger = require("./application/logger.js");
-var PORT = process.env.APP_PORT || 3000;
-_web.web.listen(PORT, function () {
-  _logger.logger.info("\u2705 Aplikasi berjalan di PORT: ".concat(PORT));
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports["default"] = void 0;
+var _web = _interopRequireDefault(require("../dist/application/web"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+var _default = exports["default"] = _web["default"];
