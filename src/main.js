@@ -1,8 +1,4 @@
-import web from './application/web.js';
-import { logger } from './application/logger.js';
+import web from "../dist/application/web";
 
-const PORT = process.env.APP_PORT || 3000;
 
-web.web.listen(PORT, () => {
-  logger.info(`✅ Aplikasi berjalan di PORT: ${PORT}`);
-});
+export default web;

@@ -13,7 +13,7 @@ export const web = express();
 
 web.use(fileUpload());
 web.use(cors({
-    origin: "http://localhost:5173", // atau environment variable FE kamu
+
     credentials: true
 }));
 
